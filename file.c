@@ -40,6 +40,10 @@ void baca_file(){
     { buat_node(KTM,nama); }
 }
 
+void hapus_node(){
+    
+}
+
 void menu_utama(){
     char KTM[15];
     int pilihan;
@@ -61,6 +65,7 @@ void menu_utama(){
             fungsi_hash(KTM);
             break;
         case 2:
+            hapus_node();
             printf("terima kasih!\n");
             return;
         default:
