@@ -12,8 +12,8 @@ typedef struct array
 array *hash_table[101];
 
 int fungsi_hash(char KTM[]){
-    int idx;
-
+    int idx = 0;
+    
     return idx;
 }
 
@@ -55,6 +55,7 @@ void hapus_node(){
 
 void menu_utama(){
     char KTM[15];
+    int idx = 0;
     int pilihan;
     do
     {
@@ -71,16 +72,16 @@ void menu_utama(){
         case 1:
             printf("masukkan kode e-KTM: ");
             fgets(KTM,15,stdin);
-            fungsi_hash(KTM);
+            idx = fungsi_hash(KTM);
             break;
         case 2:
             hapus_node();
             printf("terima kasih!\n");
             return;
         default:
-        printf("input tidak valid!\n");
+            printf("input tidak valid!\n\n");
         }
-    } while (pilihan == 0);
+    } while (pilihan != 2);
 }
 
 int main(){
