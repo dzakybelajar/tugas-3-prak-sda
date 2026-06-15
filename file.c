@@ -15,11 +15,15 @@ void buat_node(char KTM, char nama){
     array *newnode = (array*) malloc(sizeof(array));
     strcpy(newnode->KTM,KTM);
     strcpy(newnode->nama,nama);
-    fungsi_hash(newnode);
+    int idx = fungsi_hash(newnode->KTM);
+    newnode->next = hash_table[idx];
+    hash_table[idx] = idx;
 }
 
-int fungsi_hash(array *newnode){
+int fungsi_hash(char KTM[15]){
+    int idx;
 
+    return idx;
 }
 
 void baca_file(){
@@ -44,6 +48,7 @@ void menu_utama(){
         pilihan = 0;
         printf("==== MENU UTAMA ====\n");
         printf("1.verifikasi e-KTM\n");
+        printf("2.keluar\n");
         printf("pilihan: ");
         scanf("%d",&pilihan);
         while(getchar() != "\n");
@@ -53,8 +58,11 @@ void menu_utama(){
         case 1:
             printf("masukkan kode e-KTM: ");
             fgets(KTM,15,stdin);
-            fungsi_hash();
+            fungsi_hash(KTM);
             break;
+        case 2:
+            printf("terima kasih!\n");
+            return;
         default:
         printf("input tidak valid!\n");
         }
