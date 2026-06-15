@@ -81,7 +81,11 @@ void menu_utama(){
                 if (strcasecmp(temp->KTM,KTM) != 0 && temp->next == NULL)
                 { printf("kode e-KTM tidak ditemukan!\n"); break; }
                 else if (strcasecmp(temp->KTM,KTM) == 0)
-                { printf("kode e-KTM ditemukan!\n"); break; }
+                { 
+                    printf("kode e-KTM: %s\n",temp->KTM);
+                    printf("nama: %s\n\n",temp->nama); 
+                    break; 
+                }
                 temp = temp->next;
             }
             break;
