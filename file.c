@@ -9,7 +9,7 @@ typedef struct array
     struct array *next;
 } array;
 
-array *hash_table[101];
+array *hash_table[101] = {NULL};
 
 int fungsi_hash(char KTM[]){
     int idx = 0;
