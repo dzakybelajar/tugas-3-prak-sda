@@ -77,11 +77,11 @@ void menu_utama(){
             idx = fungsi_hash(KTM);
             array *temp = hash_table[idx];
             if (temp == NULL)
-            { printf("kode e-KTM tidak ditemukan!\n"); }
+            { printf("kode e-KTM tidak ditemukan!\n\n"); }
             while (temp != NULL)
             {
                 if (strcasecmp(temp->KTM,KTM) != 0 && temp->next == NULL)
-                { printf("kode e-KTM tidak ditemukan!\n"); break; }
+                { printf("kode e-KTM tidak ditemukan!\n\n"); break; }
                 else if (strcasecmp(temp->KTM,KTM) == 0)
                 { 
                     printf("kode e-KTM: %s\n",temp->KTM);
