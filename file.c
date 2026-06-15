@@ -13,7 +13,7 @@ array *hash_table[101];
 
 int fungsi_hash(char KTM[]){
     int idx = 0;
-    
+
     return idx;
 }
 
@@ -73,6 +73,17 @@ void menu_utama(){
             printf("masukkan kode e-KTM: ");
             fgets(KTM,15,stdin);
             idx = fungsi_hash(KTM);
+            array *temp = hash_table[idx];
+            if (temp == NULL)
+            { printf("kode e-KTM tidak ditemukan!\n"); }
+            while (temp != NULL)
+            {
+                if (strcasecmp(temp->KTM,KTM) != 0 && temp->next == NULL)
+                { printf("kode e-KTM tidak ditemukan!\n"); break; }
+                else if (strcasecmp(temp->KTM,KTM) == 0)
+                { printf("kode e-KTM ditemukan!\n"); break; }
+                temp = temp->next;
+            }
             break;
         case 2:
             hapus_node();
