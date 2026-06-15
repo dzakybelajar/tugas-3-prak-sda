@@ -67,7 +67,6 @@ void menu_utama(){
         printf("input tidak valid!\n");
         }
     } while (pilihan == 0);
-    
 }
 
 int main(){
