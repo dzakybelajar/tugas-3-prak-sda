@@ -32,11 +32,12 @@ void baca_file(){
     if (file == NULL)
     { printf("file tidak ditemukan!\n"); return; }
     else if (fgetc(file) == EOF)
-    { printf("file tidaka ada isi!\n"); return; }
-    
+    { printf("file tidak ada isi!"); return;};
+    rewind(file);
+
     char KTM[15];
     char nama[30];
-    while (fscanf(file,"%[^,],%[^\n]",KTM,nama) == 2)
+    while (fscanf(file,"%[^,],%[^\n]\n",KTM,nama) == 2)
     { buat_node(KTM,nama); }
 }
 
@@ -72,6 +73,7 @@ void menu_utama(){
         case 1:
             printf("masukkan kode e-KTM: ");
             fgets(KTM,15,stdin);
+            KTM[strcspn(KTM,"\n")] = 0;
             idx = fungsi_hash(KTM);
             array *temp = hash_table[idx];
             if (temp == NULL)
