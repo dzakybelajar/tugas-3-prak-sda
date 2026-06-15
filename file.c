@@ -106,7 +106,7 @@ void menu_utama(){
         default:
             printf("input tidak valid!\n\n");
         }
-    } while (pilihan != 2);
+    } while (pilihan != 3);
 }
 
 int main(){
