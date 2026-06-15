@@ -6,28 +6,28 @@ typedef struct array
 {
     char KTM[15];
     char nama[30];
-    array *next;
+    struct array *next;
 } array;
 
 array *hash_table[101];
 
-void buat_node(char KTM, char nama){
-    array *newnode = (array*) malloc(sizeof(array));
-    strcpy(newnode->KTM,KTM);
-    strcpy(newnode->nama,nama);
-    int idx = fungsi_hash(newnode->KTM);
-    newnode->next = hash_table[idx];
-    hash_table[idx] = idx;
-}
-
-int fungsi_hash(char KTM[15]){
+int fungsi_hash(char KTM[]){
     int idx;
 
     return idx;
 }
 
+void buat_node(char KTM[], char nama[]){
+    array *newnode = (array*) malloc(sizeof(array));
+    strcpy(newnode->KTM,KTM);
+    strcpy(newnode->nama,nama);
+    int idx = fungsi_hash(newnode->KTM);
+    newnode->next = hash_table[idx];
+    hash_table[idx] = newnode;
+}
+
 void baca_file(){
-    FILE *file = fopen("Data_Latih.txt",'r');
+    FILE *file = fopen("Data_Latih.txt","r");
 
     if (file == NULL)
     { printf("file tidak ditemukan!\n"); return; }
@@ -41,7 +41,16 @@ void baca_file(){
 }
 
 void hapus_node(){
-    
+    for (int i = 0; i < 101; i++)
+    {
+        array *temp = hash_table[i];
+        while (temp != NULL)
+        { 
+            hash_table[i] = temp->next;
+            free(temp);
+            temp = hash_table[i];
+        }
+    }
 }
 
 void menu_utama(){
@@ -55,7 +64,7 @@ void menu_utama(){
         printf("2.keluar\n");
         printf("pilihan: ");
         scanf("%d",&pilihan);
-        while(getchar() != "\n");
+        while(getchar() != '\n');
 
         switch (pilihan)
         {
