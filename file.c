@@ -10,8 +10,8 @@ typedef struct array
 } array;
 
 array *hash_table[101] = {NULL};
-float collision = 0;
-float idx_terisi = 0;
+int collision = 0;
+int idx_terisi = 0;
 float score = 0;
 
 int fungsi_hash(char KTM[]){
@@ -63,7 +63,7 @@ void menu_utama(){
     char KTM[15];
     int idx = 0;
     int pilihan;
-    score = (idx_terisi / 101.0) * (1.0 - (abs(collision - 399) / 500.0)) * 100.0;
+    score = ((float)idx_terisi / 101.0) * (1.0 - ((float)abs(collision - 399) / 500.0)) * 100.0;
     do
     {
         pilihan = 0;
@@ -102,8 +102,8 @@ void menu_utama(){
             printf("\n==================================\n");
             printf("     BUKTI OUTPUT PERFORMANCE     \n");
             printf("==================================\n");
-            printf("Total Tabrakan (Collision): %.0f\n",collision);
-            printf("Jumlah Indeks Laci Terisi: %.0f dari 101 slot\n",idx_terisi);
+            printf("Total Tabrakan (Collision): %d\n",collision);
+            printf("Jumlah Indeks Laci Terisi: %d dari 101 slot\n",idx_terisi);
             printf("Nilai Score: %.3f%% \n",score);
             printf("==================================\n\n");
             break;
