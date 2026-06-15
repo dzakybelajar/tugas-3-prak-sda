@@ -10,6 +10,8 @@ typedef struct array
 } array;
 
 array *hash_table[101] = {NULL};
+int collision = 0;
+int idx_terisi = 0;
 
 int fungsi_hash(char KTM[]){
     int idx = 0;
@@ -22,6 +24,8 @@ void buat_node(char KTM[], char nama[]){
     strcpy(newnode->KTM,KTM);
     strcpy(newnode->nama,nama);
     int idx = fungsi_hash(newnode->KTM);
+    if (hash_table[idx] == NULL) { idx_terisi++;}
+    else { collision++; }
     newnode->next = hash_table[idx];
     hash_table[idx] = newnode;
 }
@@ -63,7 +67,8 @@ void menu_utama(){
         pilihan = 0;
         printf("==== MENU UTAMA ====\n");
         printf("1.verifikasi e-KTM\n");
-        printf("2.keluar\n");
+        printf("2.output data:\n");
+        printf("3.keluar\n");
         printf("pilihan: ");
         scanf("%d",&pilihan);
         while(getchar() != '\n');
@@ -92,6 +97,9 @@ void menu_utama(){
             }
             break;
         case 2:
+            
+            break;
+        case 3:
             hapus_node();
             printf("terima kasih!\n");
             return;
