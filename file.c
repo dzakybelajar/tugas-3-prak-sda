@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<string.h>
 
+
+#define SIZE 101
 typedef struct array
 {
     char KTM[15];
@@ -9,7 +11,7 @@ typedef struct array
     struct array *next;
 } array;
 
-array *hash_table[101] = {NULL};
+array *hash_table[SIZE] = {NULL};
 int collision = 0;
 int idx_terisi = 0;
 float score = 0;
@@ -29,7 +31,7 @@ int fungsi_hash(char KTM[]){
     }
 
 
-    return hash % 101;
+    return hash % SIZE;
 }
 
 void buat_node(char KTM[], char nama[]){
@@ -61,7 +63,7 @@ void baca_file(){
 }
 
 void hapus_node(){
-    for (int i = 0; i < 101; i++)
+    for (int i = 0; i < SIZE; i++)
     {
         array *temp = hash_table[i];
         while (temp != NULL)
@@ -112,12 +114,12 @@ void menu_utama(){
             }
             break;
         case 2:
-            score = ((float)idx_terisi / 101.0) * (1.0 - ((float)abs(collision - 399) / 500.0)) * 100.0;
+            score = ((float)idx_terisi / SIZE) * (1.0 - ((float)abs(collision - 399) / 500.0)) * 100.0;
             printf("\n==================================\n");
             printf("     BUKTI OUTPUT PERFORMANCE     \n");
             printf("==================================\n");
             printf("Total Tabrakan (Collision): %d\n",collision);
-            printf("Jumlah Indeks Laci Terisi: %d dari 101 slot\n",idx_terisi);
+            printf("Jumlah Indeks Laci Terisi: %d dari SIZE slot\n",idx_terisi);
             printf("Nilai Score: %.3f%% \n",score);
             printf("==================================\n\n");
             break;
