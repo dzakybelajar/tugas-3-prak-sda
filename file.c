@@ -14,7 +14,7 @@ int collision = 0;
 int idx_terisi = 0;
 float score = 0;
 
-int fungsi_hash(int KTM[]){
+int fungsi_hash(char KTM[]){
 
     int unsigned long hash = 37;
     int idx = 0;
