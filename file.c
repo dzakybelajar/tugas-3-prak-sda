@@ -19,7 +19,7 @@ int fungsi_hash(char KTM[]){
     int unsigned long hash = 37;
     int idx = 0;
 
-    for(int i = 0; KTM[i] != "/0"; i++){
+    for(int i = 0; KTM[i] != '\0'; i++){
        int nilai_ascii = KTM[i];
        
        hash = (hash << 5 ) ^ nilai_ascii;
