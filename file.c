@@ -6,8 +6,8 @@
 #define SIZE 101
 typedef struct array
 {
-    char KTM[15];
-    char nama[30];
+    char KTM[50];
+    char nama[50];
     struct array *next;
 } array;
 
