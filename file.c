@@ -23,10 +23,11 @@ int fungsi_hash(char KTM[]){
        int nilai_ascii = KTM[i];
        
        hash = (hash << 5 ) ^ nilai_ascii;
-       hash = hash +(nilai_ascii * idx * 11); 
+       hash = hash +(nilai_ascii * idx * 11);
+        
+       idx++;
     }
 
-    idx++;
 
     return hash % 101;
 }
