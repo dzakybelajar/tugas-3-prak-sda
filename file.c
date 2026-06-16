@@ -119,7 +119,7 @@ void menu_utama(){
             printf("     BUKTI OUTPUT PERFORMANCE     \n");
             printf("==================================\n");
             printf("Total Tabrakan (Collision): %d\n",collision);
-            printf("Jumlah Indeks Laci Terisi: %d dari SIZE slot\n",idx_terisi);
+            printf("Jumlah Indeks Laci Terisi: %d dari %d slot\n",idx_terisi, SIZE);
             printf("Nilai Score: %.3f%% \n",score);
             printf("==================================\n\n");
             break;
