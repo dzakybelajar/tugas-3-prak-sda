@@ -26,6 +26,8 @@ int fungsi_hash(char KTM[]){
        hash = hash +(nilai_ascii * idx * 11); 
     }
 
+    idx++;
+
     return hash % 101;
 }
 
