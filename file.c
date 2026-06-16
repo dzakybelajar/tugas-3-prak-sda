@@ -56,6 +56,8 @@ void baca_file(){
     char nama[30];
     while (fscanf(file,"%[^,],%[^\n]\n",KTM,nama) == 2)
     { buat_node(KTM,nama); }
+
+    fclose(file);
 }
 
 void hapus_node(){
