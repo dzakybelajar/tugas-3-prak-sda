@@ -15,9 +15,18 @@ int idx_terisi = 0;
 float score = 0;
 
 int fungsi_hash(char KTM[]){
+
+    int unsigned long hash = 37;
     int idx = 0;
 
-    return idx;
+    for(int i = 0; KTM[i] != "/0"; i++){
+       int nilai_ascii = KTM[i];
+       
+       hash = (hash << 5 ) ^ nilai_ascii;
+       hash = hash +(nilai_ascii * idx * 11); 
+    }
+
+    return hash % 101;
 }
 
 void buat_node(char KTM[], char nama[]){
