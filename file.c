@@ -16,8 +16,8 @@ float score = 0;
 
 int fungsi_hash(char KTM[]){
 
-    int unsigned long hash = 37;
-    int idx = 0;
+    unsigned long hash = 37;
+    int idx = 1;
 
     for(int i = 0; KTM[i] != '\0'; i++){
        int nilai_ascii = KTM[i];
