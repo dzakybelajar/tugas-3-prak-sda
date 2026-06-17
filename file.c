@@ -1,9 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-
-
 #define SIZE 101
+
 typedef struct array
 {
     char KTM[50];
@@ -17,20 +16,16 @@ int idx_terisi = 0;
 float score = 0;
 
 int fungsi_hash(char KTM[]){
-
     unsigned long hash = 37;
     int idx = 1;
 
     for(int i = 0; KTM[i] != '\0'; i++){
        int nilai_ascii = KTM[i];
-       
+
        hash = (hash << 5 ) ^ nilai_ascii;
        hash = hash +(nilai_ascii * idx * 11);
-
        idx++;
     }
-
-
     return hash % SIZE;
 }
 
