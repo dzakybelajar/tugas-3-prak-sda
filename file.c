@@ -54,8 +54,8 @@ void baca_file(){
     { printf("file tidak ada isi!"); return;};
     rewind(file);
 
-    char KTM[15];
-    char nama[30];
+    char KTM[50];
+    char nama[50];
     while (fscanf(file,"%[^,],%[^\n]\n",KTM,nama) == 2)
     { buat_node(KTM,nama); }
 
@@ -76,7 +76,7 @@ void hapus_node(){
 }
 
 void menu_utama(){
-    char KTM[15];
+    char KTM[50];
     int idx = 0;
     int pilihan;
     do
