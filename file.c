@@ -94,7 +94,7 @@ void menu_utama(){
         {
         case 1:
             printf("masukkan kode e-KTM: ");
-            fgets(KTM,15,stdin);
+            fgets(KTM,50,stdin);
             KTM[strcspn(KTM,"\n")] = 0;
             idx = fungsi_hash(KTM);
             array *temp = hash_table[idx];
